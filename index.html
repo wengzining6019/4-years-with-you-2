@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>4 YEARS WITH YOU</title>
+<style>
+:root{--cream:#f5ecd9;--red:#e84c3d;--blue:#6c91c2;--yellow:#f3c94d;--ink:#27231f;--pink:#efa8ad;--green:#78956d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:#d8cfbd;font-family:Arial,"PingFang TC",sans-serif}
+button,input{font:inherit}button{cursor:pointer}
+.app{width:min(100%,480px);margin:auto;background:var(--cream);min-height:100vh;overflow:hidden;box-shadow:0 0 50px #8f8878}
+.paper{background-color:var(--cream);background-image:linear-gradient(rgba(70,50,20,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(70,50,20,.025) 1px,transparent 1px);background-size:7px 7px}
+.screen{min-height:100svh;padding:28px 22px 38px;position:relative;display:none}.screen.active{display:flex;flex-direction:column;justify-content:center}
+.tape{position:absolute;width:72px;height:23px;background:rgba(230,198,128,.62);transform:rotate(-7deg);z-index:4}.star{position:absolute;font-size:28px}.scribble{font-family:"Trebuchet MS","Arial Rounded MT Bold","PingFang TC",sans-serif}
+.cover{background:#cbd7e3;isolation:isolate}.cover:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,#f5d5d0 0 16%,transparent 17%),radial-gradient(circle at 80% 78%,#f3df99 0 14%,transparent 15%);opacity:.7;z-index:-1}
+.cover h1{font:900 55px/0.82 Georgia,serif;letter-spacing:-4px;margin:0;transform:rotate(-3deg)}.cover .years{font-size:18px;letter-spacing:5px;margin:18px 0}.cover p{max-width:310px;line-height:1.7}
+.couple{height:42svh;margin:18px -4px 16px;position:relative}.couple img{width:48%;height:100%;object-fit:cover;position:absolute;border:7px solid #f8f0df;box-shadow:4px 6px 0 #222}.couple img:first-child{left:2%;transform:rotate(-5deg)}.couple img:last-child{right:2%;transform:rotate(5deg)}
+.crown{position:absolute;top:-27px;font-size:43px;z-index:5}.c1{left:18%}.c2{right:18%}
+.start,.next,.submit{border:2px solid var(--ink);background:var(--red);color:white;padding:13px 18px;font-weight:800;box-shadow:4px 4px 0 var(--ink);border-radius:0}
+.qno{font-weight:900;letter-spacing:2px;color:var(--red)}h2{font:900 31px/1.05 "Arial Rounded MT Bold","PingFang TC",sans-serif,serif;margin:10px 0 24px}.question{justify-content:flex-start!important;padding-top:68px}
+.answer{width:100%;padding:14px;border:2px solid var(--ink);background:#fff9ec;margin:10px 0 14px;outline:none}.choices{display:grid;gap:10px}.choice{padding:13px;text-align:left;border:2px solid var(--ink);background:#fff9ec;box-shadow:3px 3px 0 var(--ink)}.choice:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+.feedback{display:none;margin-top:18px;padding:15px;background:var(--yellow);border:2px solid var(--ink);font-weight:800;transform:rotate(-1deg)}.feedback.show{display:block}
+.reveal{display:none;margin-top:20px}.reveal.show{display:block}.polaroids{display:grid;grid-template-columns:1fr 1fr;gap:9px}.polaroids img{width:100%;height:190px;object-fit:cover;background:white;padding:7px 7px 28px;box-shadow:2px 4px 0 rgba(0,0,0,.22)}.polaroids img:nth-child(odd){transform:rotate(-3deg)}.polaroids img:nth-child(even){transform:rotate(3deg)}
+.range{width:100%;accent-color:var(--red);margin:35px 0 10px}.biglove{text-align:center;font:900 50px Georgia;color:var(--red)}
+.duel{display:grid;grid-template-columns:1fr 1fr;gap:10px}.duel button{padding:16px 8px;border:2px solid #222;background:#fff}.meme img{width:100%;max-height:46svh;object-fit:contain}.angry{position:absolute;font-size:55px;right:24px;top:105px;display:none}
+.three input{display:block;margin:9px 0;width:100%;padding:12px;border:2px solid #222;background:#fffaf0}
+.scrollstory{padding:62px 18px 100px}.scrollstory h2{font-size:38px}.memory{margin:65px 0;position:relative}.memory h3{font:900 29px/1.1 "Arial Rounded MT Bold","PingFang TC",sans-serif;margin:0 0 16px}.memory .caption{font-family:"Trebuchet MS","Arial Rounded MT Bold","PingFang TC",sans-serif;font-size:17px;margin:10px 0}.collage{display:grid;grid-template-columns:1fr 1fr;gap:10px}.collage img{width:100%;height:220px;object-fit:cover;border:7px solid #fff4df;box-shadow:3px 5px 0 #333}.collage img:nth-child(3n+1){transform:rotate(-3deg)}.collage img:nth-child(3n+2){transform:rotate(3deg)}.collage .wide{grid-column:1/3;height:260px}
+.candlepage{text-align:center}.cake{font-size:110px;position:relative;margin:30px 0 10px}.flames{display:flex;justify-content:center;gap:22px;margin-bottom:-50px;position:relative;z-index:2}.flame{font-size:34px;transition:.4s}.flame.off{opacity:0;transform:translateY(15px) scale(.2)}.micstatus{font-size:13px;margin:14px}
+.letter{background:#fff8e8;border:2px solid #222;padding:26px 20px;box-shadow:8px 8px 0 var(--pink);transform:rotate(-1deg);line-height:1.9}.letter h2{font-size:34px}.tiny{font-size:11px;opacity:.65}.hidden{display:none!important}
+
+.coverphoto{height:45svh;margin:18px 0 18px;position:relative;transform:rotate(-2deg);background:#fff3df;padding:8px 8px 34px;box-shadow:5px 6px 0 #222}
+.coverphoto img{width:100%;height:100%;object-fit:cover;display:block}
+.covernote{position:absolute;right:12px;bottom:6px;font-weight:900;font-size:18px;color:#e84c3d;transform:rotate(3deg)}
+.cutoutstage{position:relative;min-height:390px;margin-top:20px;background:radial-gradient(circle at 50% 45%,#f3c94d 0 30%,transparent 31%),repeating-conic-gradient(from 0deg,#e84c3d 0 8deg,#f5ecd9 8deg 16deg);border:2px solid #222;overflow:hidden}
+.cutoutstage .cutout{position:absolute;z-index:2;object-fit:contain;filter:drop-shadow(5px 7px 0 rgba(0,0,0,.28))}
+.catcut{width:94%;height:330px;left:3%;bottom:48px}.mecut{width:92%;height:345px;left:4%;bottom:42px}
+.burst{position:absolute;z-index:4;right:18px;top:14px;font-size:58px;transform:rotate(12deg)}
+.yell{position:absolute;z-index:5;left:15px;top:14px;background:#fff;padding:7px 12px;border:2px solid #222;box-shadow:3px 3px 0 #222;font-size:24px;font-weight:900;transform:rotate(-6deg)}
+.cutoutstage .feedback{position:absolute;left:10px;right:10px;bottom:8px;z-index:6;margin:0}
+
+.stickerCaption{display:inline-block;background:#e84c3d;color:#fff;padding:7px 12px;border:2px solid #222;box-shadow:3px 3px 0 #222;transform:rotate(-4deg);font-weight:900!important;font-size:18px!important}
+.letterScreen{justify-content:flex-start!important;padding-top:42px;padding-bottom:60px}
+.letterScreen .letter{transform:none;background:#fff9e9;box-shadow:7px 7px 0 #e84c3d}
+.letterbody{font-family:"Trebuchet MS","PingFang TC",sans-serif;font-size:15px;line-height:1.9;letter-spacing:.02em}
+.letterbody p{margin:0 0 23px}
+.letterend{text-align:right;font-family:"Trebuchet MS","Arial Rounded MT Bold",sans-serif;font-weight:900;color:#e84c3d;font-size:19px;transform:rotate(-3deg);margin:25px 4px}
+.caption{font-family:"Trebuchet MS","Arial Rounded MT Bold","PingFang TC",sans-serif!important}
+
+.uni .collage{
+  display:block;
+}
+.uni .collage img{
+  width:100%;
+  height:auto !important;
+  max-height:none !important;
+  aspect-ratio:auto;
+  object-fit:contain !important;
+  display:block;
+  background:#fff4df;
+}
+
+</style>
+</head>
+<body><main class="app paper">
+<section class="screen cover active" id="s0">
+<div class="star" style="right:20px;top:30px">★</div><div class="star" style="left:18px;top:160px;color:#e84c3d">✦</div>
+<div class="scribble">OUR LITTLE LOVE ARCHIVE</div>
+<h1>4 YEARS<br>WITH YOU</h1><div class="years">2022 — 2026</div>
+<div class="coverphoto"><span class="tape" style="left:40%;top:-8px"></span><img src="assets/new_cover.jpg" alt="我們的合照"><span class="covernote scribble">US! ♡</span></div>
+<p>好像一不小心，就第四年了。<br>在進入第五年以前……<br>有一些東西想跟你確認一下 👀</p>
+<button class="start" onclick="go(1)">START →</button>
+</section>
+
+<section class="screen question" id="s1"><div class="qno">01 / 09</div><h2>我們已經在一起多久？</h2><input id="q1" class="answer" placeholder="輸入答案…"><button class="submit" onclick="q1()">送出</button><div id="f1" class="feedback">答對了！♡</div><div id="r1" class="reveal meme"><img src="assets/四.png"><button class="next" onclick="go(2)">下一題 →</button></div></section>
+
+<section class="screen question" id="s2"><div class="qno">02 / 09</div><h2>當兵時最常傳給你的照片是什麼？</h2><input class="answer" placeholder="提示：三個字 👀"><button class="submit" onclick="reveal('f2','r2')">送出</button><div id="f2" class="feedback">爛美國！！！</div><div id="r2" class="reveal"><div class="polaroids"><img src="assets/IMG_1503.JPG"><img src="assets/IMG_1901.JPG"><img src="assets/IMG_1946.JPG"><img src="assets/IMG_1969.JPG"><img src="assets/IMG_2100.JPG"><img src="assets/IMG_2428.JPG"></div><p class="scribble">當兵期間の每日伙食回報</p><button class="next" onclick="go(3)">下一題 →</button></div></section>
+
+<section class="screen question" id="s3"><div class="qno">03 / 09</div><h2>我們最愛的餐廳？</h2><div class="choices"><button class="choice" onclick="wrong(this)">海底撈</button><button class="choice" onclick="wrong(this)">麥當勞</button><button class="choice" onclick="wrong(this)">一蘭拉麵</button><button class="choice" onclick="reveal('f3','r3')">以上皆是</button></div><div id="f3" class="feedback">沒錯，全部都愛吃！</div><div id="r3" class="reveal"><div class="polaroids"><img src="assets/IMG_0429.JPG"><img src="assets/99D7F810-D4B1-4FAB-8C0E-DC57E0747F0B.jpg"><img src="assets/5344B536-2F30-4E33-8001-97DBCB44ACAF.jpg"><img src="assets/0D1B0CC5-C1B0-4CBF-B7C0-0073D3D1287C.jpg"></div><p class="scribble">每次買麥當勞都當吃到飽在吃……</p><button class="next" onclick="go(4)">下一題 →</button></div></section>
+
+<section class="screen question" id="s4"><div class="qno">04 / 09</div><h2>還記得這張照片是什麼時候嗎？</h2><div class="meme"><img src="assets/IMG_3352[1].JPG"></div><input class="answer" placeholder="想到什麼就寫什麼"><button class="submit" onclick="reveal('f4','r4')">送出</button><div id="f4" class="feedback">每次看你受傷真的又心疼又生氣，希望你可以平平安安、健健康康的。</div><div id="r4" class="reveal"><button class="next" onclick="go(5)">下一題 →</button></div></section>
+
+<section class="screen question" id="s5"><div class="qno">05 / 09</div><h2>你有多愛我？</h2><div class="biglove" id="lovev">50</div><input class="range" id="love" type="range" min="0" max="100" value="50" oninput="lovev.textContent=this.value"><button class="submit" onclick="document.getElementById('f5').classList.add('show')">確定就是這個數字</button><div id="f5" class="feedback">只有 100？🙂<br><button class="next" onclick="go(6)">算了，下一題</button></div></section>
+
+<section class="screen question" id="s6"><div class="qno">06 / 09</div><h2>哪件事會讓窩窩最生氣？</h2><div class="choices"><button class="choice" onclick="wrong(this)">受傷</button><button class="choice" onclick="wrong(this)">按讚收藏辣妹跳舞</button><button class="choice" onclick="wrong(this)">跟女生沒界線</button><button class="choice" onclick="document.getElementById('f6').classList.add('show')">以上皆是</button></div><div id="f6" class="feedback">你也知道！！還敢累犯！！😡😡😡💢💢<br><button class="next" onclick="go(7)">逃離現場 →</button></div></section>
+
+<section class="screen question catq" id="s7"><div class="qno">07 / 09</div><h2>如果女朋友跟貓同時叫你，你先理誰？</h2><div class="duel"><button onclick="catResult()">女朋友</button><button onclick="gfResult()">貓</button></div>
+<div id="catres" class="reveal cutoutstage"><div class="burst">💢</div><img class="cutout catcut" src="assets/angry_cat.png"><div class="yell scribble">蛤？？？</div><div class="feedback show">貓貓：你最好想清楚喔。</div></div>
+<div id="gfres" class="reveal cutoutstage"><div class="burst">💢</div><img class="cutout mecut" src="assets/angry_me.png"><div class="yell scribble">嗯？？🙂</div><div class="feedback show">很好。你女朋友記住了。</div></div>
+<div id="q7next" class="reveal"><button class="next" onclick="go(8)">下一題 →</button></div></section>
+
+<section class="screen question" id="s8"><div class="qno">08 / 09</div><h2>請輸入你女朋友最可愛的三個地方。</h2><div class="three"><input placeholder="①"><input placeholder="②"><input placeholder="③"></div><button class="submit" onclick="reveal('f8','r8')">送出</button><div id="f8" class="feedback">🐱「只有三個？」<br>算了，勉強接受。<br><b>APPROVED ♡</b></div><div id="r8" class="reveal"><button class="next" onclick="go(9)">下一題 →</button></div></section>
+
+<section class="screen question" id="s9"><div class="qno">09 / 09</div><h2>說一個你覺得我自己不知道，但你很喜歡我的地方。</h2><textarea id="secret" class="answer" rows="5" placeholder="偷偷寫在這裡…"></textarea><button class="submit" onclick="saveSecret()">收好 ♡</button><div id="f9" class="feedback">偷偷幫你收好了 ♡</div><div id="r9" class="reveal"><button class="next" onclick="story()">問題問完了，往下看看 ↓</button></div></section>
+
+<section id="story" class="scrollstory hidden">
+<div class="scribble">OKAY, NO MORE QUESTIONS.</div><h2>我們一起經歷了<br>好多好多事…</h2>
+<div class="memory uni"><h3>大學四年 🎓</h3><div class="collage"><img class="wide" src="assets/IMG_4670(1).PNG"></div></div>
+<div class="memory"><h3>金融營</h3><div class="collage"><img src="assets/WJSJ2086[1].JPG"><img src="assets/IMG_3284[1].JPG"></div><div class="caption">我們是最好的 partner!</div></div>
+<div class="memory chengfa"><h3>成發 📸</h3><div class="collage"><img class="wide" src="assets/chengfa.jpg"></div><div class="caption stickerCaption">最佳直拍王!</div></div>
+<div class="memory"><h3>你的各種籃球比賽 🏀</h3><div class="collage"><img class="wide" src="assets/DSCF6137.JPG"></div><div class="caption">最棒的蔡19!</div></div>
+<div class="memory"><h3>一起到處跑 ✈</h3><div class="collage"><img src="assets/fxn 2024-08-12 171544.959.JPG"><img src="assets/DSCF4489.JPG"><img src="assets/IMG_1767.jpg"><img src="assets/78A2EA0A-160D-4C6C-817B-E0C612DE2790.jpg"><img src="assets/6E67A329-5C71-44B9-B0A6-E0D5130C37FC.jpg"><img src="assets/AC3077CC-D730-413F-AC33-F45734656F13.jpg"></div><div class="caption">濟州島 → 泰國 → 北海道 → 韓國 → 日本 ♡</div></div>
+<div class="memory"><h3>還有好多數不盡的事情。</h3><p>好像一不小心，真的一起走過四年了。<br><br>接下來也請多多指教啦！</p><button class="start" onclick="showCandles()">我們四歲了 🎂 →</button></div>
+</section>
+
+<section class="screen candlepage" id="candles"><div class="qno">ONE LAST THING</div><h2>我們四歲了！</h2><p>許個願，然後對著蠟燭吹氣。</p><div class="flames"><span class="flame">🔥</span><span class="flame">🔥</span><span class="flame">🔥</span><span class="flame">🔥</span></div><div class="cake">🎂</div><button class="start" id="micbtn" onclick="startMic()">🎤 開啟麥克風</button><div class="micstatus" id="micstatus">如果手機不支援，也可以偷偷點蛋糕吹熄 👀</div><button class="choice" onclick="blowOut()">偷偷吹熄</button><div id="candleNext" class="reveal"><h2>HAPPY 4TH ANNIVERSARY ♡</h2><button class="start" onclick="goLetter()">有一張卡片要給你 💌</button></div></section>
+
+<section class="screen letterScreen" id="letter"><div class="letter"><div class="scribble">TO 蔡19 ♡</div><h2>四週年快樂！</h2><div class="letterbody"><p>寶寶! 四週年快樂~ 這一年也辛苦你了<br>我們在這一年都面臨了好多好多的變化<br>不管是我工作、離職，還是寶寶當兵<br>很幸運我們都很珍惜、體貼彼此，所以無論發生什麼事情我們都可以一起度過！</p><p>我並不是一個情緒很穩定的人，我的生活中充斥著對我來說的各種壓力<br>真的很謝謝寶寶願意陪一起經歷這些情緒、焦慮還有我人生中許多重大的時刻<br>我可以一直往前衝，是因為背後有寶寶支持和鼓勵！<br>現在我也努力增加自己的韌性，都是和寶寶學習的！<br>我們總是互相學習互相鼓勵，讓彼此成為更棒的人</p><p>我們都在努力往更好的生活邁進！<br>雖然現在的生活很辛苦但也好幸福<br>每天起床去找寶寶咖啡廳！然後在那邊念書和你一起下班<br>有時候還可以一起煮飯、追劇，這一切的一切對我來說都太幸福了<br>也期待寶寶可以早日找到自己想做的事情<br>希望煩惱少一點、病痛也少一點<br>不管你要做什麼我都會支持你！我們一定可以達成夢想的</p><p>謝謝寶寶願意和我在一起，這四年我過得非常非常幸福<br>未來的５６７８９１０年都還請多多指教！</p></div><div class="letterend">LOVE YOU ♡<br>2026</div><p class="tiny">P.S. 你剛剛偷偷寫的答案：</p><p id="secretBack" class="scribble"></p></div></section>
+</main>
+<script>
+let cur=0;
+function go(n){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById('s'+n).classList.add('active');scrollTo(0,0);cur=n}
+function reveal(f,r){document.getElementById(f).classList.add('show');document.getElementById(r).classList.add('show')}
+function q1(){reveal('f1','r1')}
+function wrong(b){b.textContent='再想一下 😗';b.style.background='#efa8ad'}
+function catResult(){document.getElementById('catres').classList.add('show');document.getElementById('gfres').classList.remove('show');document.getElementById('q7next').classList.add('show')}
+function gfResult(){document.getElementById('gfres').classList.add('show');document.getElementById('catres').classList.remove('show');document.getElementById('anger').style.display='block';document.getElementById('q7next').classList.add('show')}
+function saveSecret(){localStorage.setItem('secretAnswer',document.getElementById('secret').value);reveal('f9','r9')}
+function story(){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById('story').classList.remove('hidden');document.getElementById('story').scrollIntoView()}
+function showCandles(){document.getElementById('story').classList.add('hidden');document.getElementById('candles').classList.add('active');scrollTo(0,0)}
+function blowOut(){document.querySelectorAll('.flame').forEach((f,i)=>setTimeout(()=>f.classList.add('off'),i*220));setTimeout(()=>document.getElementById('candleNext').classList.add('show'),1200)}
+async function startMic(){
+ try{
+  const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+  const ctx=new (window.AudioContext||window.webkitAudioContext)(),src=ctx.createMediaStreamSource(stream),an=ctx.createAnalyser();src.connect(an);an.fftSize=256;
+  const data=new Uint8Array(an.frequencyBinCount);let hits=0;document.getElementById('micstatus').textContent='對著手機吹氣～';
+  function tick(){an.getByteFrequencyData(data);let avg=data.reduce((a,b)=>a+b,0)/data.length;if(avg>35)hits++;else hits=Math.max(0,hits-1);if(hits>7){stream.getTracks().forEach(t=>t.stop());blowOut();return}requestAnimationFrame(tick)}tick()
+ }catch(e){document.getElementById('micstatus').textContent='麥克風沒有開成功，沒關係，點下面偷偷吹熄 ♡'}
+}
+function goLetter(){document.getElementById('candles').classList.remove('active');document.getElementById('letter').classList.add('active');document.getElementById('secretBack').textContent=localStorage.getItem('secretAnswer')||'（他剛剛寫的答案會出現在這裡）';scrollTo(0,0)}
+</script>
+</body></html>
